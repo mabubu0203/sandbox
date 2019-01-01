@@ -1,0 +1,16 @@
+dependencies {
+
+    // SpringBoot projects
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-web")
+}
+
+springBoot {
+    buildInfo()
+    mainClassName = 'jp.urata.sandbox.api.ApiApp'
+}
+
+war {
+    archiveName = 'Api.war'
+}

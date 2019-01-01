@@ -88,3 +88,7 @@ subprojects {
 project(':micro-api') {
     ext.moduleName = 'jp.urata.sandbox.api'
 }
+
+project(':micro-web') {
+    ext.moduleName = 'jp.urata.sandbox.web'
+}

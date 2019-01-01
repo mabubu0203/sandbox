@@ -1,5 +1,6 @@
 rootProject.name = 'Sandbox'
 include(
-        'micro-api'
+        'micro-api',
+        'micro-web'
 )
 

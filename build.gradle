@@ -1,0 +1,90 @@
+buildscript {
+    ext {
+        // ソースと実行ファイルのJavaバージョン
+        jdkVersion = jdkVersion
+        defaultEncoding = defaultEncoding
+
+        // SpringBoot
+        springBootVersion = springbootVersion
+
+        // ModelMapper
+        modelmapperVersion = modelmapperVersion
+
+    }
+
+    repositories {
+        jcenter()
+    }
+
+}
+
+plugins {
+    id "org.springframework.boot" version "2.1.1.RELEASE"
+}
+
+apply from: "$rootDir/gradle/ide.gradle"
+
+allprojects {
+
+    apply plugin: 'java'
+
+    repositories {
+        jcenter()
+    }
+
+    javadoc {
+        doFirst {
+            exclude "**/module-info.java"
+            options {
+                addBooleanOption('html5', true)
+                author = true
+                charSet = defaultEncoding
+                docEncoding = defaultEncoding
+                encoding = defaultEncoding
+                links(
+                        "https://docs.oracle.com/en/java/javase/11/docs/api/",
+                        "https://docs.spring.io/spring-boot/docs/current/api/"
+                )
+                linkSource = true
+                noHelp = true
+                setMemberLevel(JavadocMemberLevel.PUBLIC)
+                setNoQualifiers(["all"])
+            }
+        }
+    }
+
+    compileJava {
+        doFirst {
+            sourceCompatibility = jdkVersion
+            targetCompatibility = jdkVersion
+            options.encoding = defaultEncoding
+            options.compilerArgs += [
+                    "-Xlint:unchecked", "-Xlint:deprecation",
+                    "--module-path", classpath.asPath
+            ]
+            classpath = files()
+        }
+    }
+
+}
+
+subprojects {
+
+    apply plugin: 'application'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'war'
+
+    repositories {
+        jcenter()
+    }
+
+    task('default') {
+        dependsOn 'clean', 'check'
+    }
+
+}
+
+project(':micro-api') {
+    ext.moduleName = 'jp.urata.sandbox.api'
+}

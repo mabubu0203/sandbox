@@ -1,37 +1,45 @@
-## Welcome to GitHub Pages
+# Sandbox
+====
 
-You can use the [editor on GitHub](https://github.com/mabubu0203/sandbox/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## 起動方法
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. 当プロジェクトをIntelliJ IDEAにGradleProjectとしてclone  
+1. GradleタスクよりbootRun(`:micro-api -> Tasks -> application -> bootRun`)
 
-### Markdown
+## 停止方法
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. bootRunの停止  
+        
+## 構成
 
-```markdown
-Syntax highlighted code block
+Gradleのマルチプロジェクト構成をとっています。
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
+sandbox                           … rootプロジェクト
+- gradle                              … 
+- micro-api                           … RestApiプロジェクト
+- build.gradle                        … Gradle プロジェクト定義
+- gradle.properties                   … Gradle プロジェクト定義
+- settings.gradle                     … Gradle プロジェクト設定
+```    
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Endpoints
 
-### Jekyll Themes
+[Actuator][]
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mabubu0203/sandbox/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## 環境
 
-### Support or Contact
+### Middleware
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+| name              | version
+| :---------------- | :-------
+| OpenJdk           | 11
+| Gradle            | 5.0 
+
+### Library
+
+| name               | version
+| :----------------- | :------
+| SpringBoot         | 2.1.x
+
+[Actuator]: http://localhost:8085/SandboxApi/actuator     "Actuator"

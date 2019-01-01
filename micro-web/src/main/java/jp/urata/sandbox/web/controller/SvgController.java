@@ -10,6 +10,8 @@ class SvgController {
 
     /**
      * svgファイル出力のサンプル
+     *
+     * @return view
      */
     @GetMapping(path = {"sample"})
     String svg() {

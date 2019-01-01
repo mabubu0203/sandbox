@@ -1,7 +1,11 @@
 module micro.api.main {
-    requires spring.boot.autoconfigure;
+
+    requires lombok;
     requires spring.boot;
-    requires spring.web;
+    requires spring.boot.autoconfigure;
     requires spring.context;
+    requires spring.core;
+    requires spring.web;
+    requires spring.beans;
 
 }

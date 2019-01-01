@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/svg")
 class SvgController {
 
+    private final SvgHelper helper;
+
     SvgController(SvgHelper helper) {
         this.helper = helper;
     }
-
-    private final SvgHelper helper;
 
     /**
      * svgファイル出力のサンプル

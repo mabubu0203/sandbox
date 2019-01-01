@@ -11,11 +11,11 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class SvgHelper {
 
+    private final ResourceLoader resourceLoader;
+
     public SvgHelper(ResourceLoader resourceLoader) {
         this.resourceLoader = resourceLoader;
     }
-
-    private final ResourceLoader resourceLoader;
 
     /**
      * svgファイル出力のサンプル
